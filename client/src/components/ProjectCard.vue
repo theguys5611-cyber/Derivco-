@@ -59,18 +59,20 @@ const timeAgo = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: var(--black-2);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  color: var(--white);
-  transition: border-color var(--transition), transform var(--transition);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .project-card:hover {
-  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+  border-color: #d1d5db;
   transform: translateY(-2px);
-  color: var(--white);
+  color: var(--text-primary);
   opacity: 1;
 }
 
@@ -83,19 +85,19 @@ const timeAgo = computed(() => {
   margin-bottom: 0.75rem;
 }
 
-.card-time { font-size: 0.75rem; color: var(--white-dim); opacity: 0.5; }
+.card-time { font-size: 0.75rem; color: var(--text-muted); }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 0.975rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   line-height: 1.3;
+  color: var(--text-primary);
 }
 
 .card-desc {
-  font-size: 0.8rem;
-  color: var(--white-dim);
-  opacity: 0.65;
+  font-size: 0.825rem;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -111,19 +113,19 @@ const timeAgo = computed(() => {
 
 .tag {
   font-size: 0.7rem;
-  padding: 0.2rem 0.5rem;
-  background: var(--black-4);
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 2px;
-  color: var(--white-dim);
+  border-radius: 20px;
+  color: var(--text-secondary);
 }
 
 .card-stats {
   display: flex;
   gap: 0.75rem;
   font-size: 0.75rem;
-  color: var(--white-dim);
-  opacity: 0.6;
+  color: var(--text-muted);
 }
 
 .card-owner {
@@ -133,14 +135,13 @@ const timeAgo = computed(() => {
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
   font-size: 0.8rem;
-  color: var(--white-dim);
+  color: var(--text-secondary);
 }
 
 .avatar {
   width: 26px;
   height: 26px;
-  background: var(--green-muted);
-  border: 1px solid var(--border-strong);
+  background: var(--green-light);
   border-radius: 50%;
   display: flex;
   align-items: center;

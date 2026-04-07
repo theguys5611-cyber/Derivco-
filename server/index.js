@@ -25,10 +25,12 @@ app.use(express.json())
 import projectRoutes from './routes/projects.js'
 import userRoutes from './routes/users.js'
 import feedRoutes from './routes/feed.js'
+import logoRoutes from './routes/logo.js'
 
 app.use('/api/projects', projectRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/feed', feedRoutes)
+app.use('/api/logo', logoRoutes)
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
 

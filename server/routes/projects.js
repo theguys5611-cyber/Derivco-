@@ -25,6 +25,7 @@ router.get('/:id', async (req, res) => {
     if (!doc.exists) return res.status(404).json({ error: 'Project not found' })
     res.json({ id: doc.id, ...doc.data() })
   } catch (err) {
+    console.error('GET /projects error:', err)
     res.status(500).json({ error: err.message })
   }
 })
@@ -32,7 +33,7 @@ router.get('/:id', async (req, res) => {
 // POST create project
 router.post('/', authenticate, async (req, res) => {
   try {
-    const { title, description, stage, supportRequired, techStack, repoUrl } = req.body
+    const { title, description, stage, supportRequired, techStack, repoUrl, logoSvg } = req.body
     const project = {
       title,
       description,
@@ -40,6 +41,7 @@ router.post('/', authenticate, async (req, res) => {
       supportRequired,
       techStack,
       repoUrl: repoUrl || '',
+      logoSvg: logoSvg || '',
       ownerId: req.user.uid,
       ownerName: req.user.name || req.user.email,
       ownerPhoto: req.user.picture || '',
@@ -177,3 +179,5 @@ router.delete('/:id', authenticate, async (req, res) => {
 })
 
 export default router
+
+// This route is already at the bottom - just confirming structure

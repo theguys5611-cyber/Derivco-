@@ -3,7 +3,8 @@
     <nav class="navbar" v-if="!isAuthPage">
       <div class="container nav-inner">
         <router-link to="/" class="nav-logo">
-          <span class="logo-bracket">[</span>MzansiBuilds<span class="logo-bracket">]</span>
+          <span class="logo-mark"></span>
+          MzansiBuilds
         </router-link>
 
         <div class="nav-links">
@@ -44,7 +45,7 @@ const isAuthPage = computed(() => route.name === 'Auth')
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(5, 10, 7, 0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -58,13 +59,21 @@ const isAuthPage = computed(() => route.name === 'Auth')
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.logo-bracket { color: var(--green); }
+.logo-mark {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+}
 
 .nav-links {
   display: flex;
@@ -73,16 +82,15 @@ const isAuthPage = computed(() => route.name === 'Auth')
 }
 
 .nav-links a {
-  color: var(--white-dim);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
   transition: color var(--transition);
 }
 
 .nav-links a:hover,
-.nav-links a.router-link-active { color: var(--green); }
+.nav-links a.router-link-active { color: var(--text-primary); }
 
-.nav-links .btn-primary { color: var(--black); }
-.nav-links .btn-primary:hover { color: var(--black); opacity: 1; }
+.nav-links .btn-primary { color: #fff; }
+.nav-links .btn-primary:hover { color: #fff; opacity: 1; }
 </style>

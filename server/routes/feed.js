@@ -23,7 +23,22 @@ router.get('/celebration', async (req, res) => {
     const snapshot = await db.collection('celebrationWall')
       .orderBy('completedAt', 'desc')
       .get()
-    const entries = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+
+    const entries = await Promise.all(
+      snapshot.docs.map(async (doc) => {
+        const entry = { id: doc.id, ...doc.data() }
+        // Fetch the project to get logoSvg and repoUrl
+        try {
+          const projectDoc = await db.collection('projects').doc(entry.projectId).get()
+          if (projectDoc.exists) {
+            entry.logoSvg = projectDoc.data().logoSvg || ''
+            entry.repoUrl = projectDoc.data().repoUrl || ''
+          }
+        } catch (e) { /* silent */ }
+        return entry
+      })
+    )
+
     res.json(entries)
   } catch (err) {
     res.status(500).json({ error: err.message })

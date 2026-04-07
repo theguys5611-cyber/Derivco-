@@ -42,7 +42,6 @@ import ProjectCard from '../components/ProjectCard.vue'
 
 const projectsStore = useProjectsStore()
 const authStore = useAuthStore()
-
 const activeStage = ref('all')
 
 const stages = [
@@ -67,13 +66,13 @@ onMounted(() => projectsStore.fetchFeed())
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 0.25rem; }
-.sub { color: var(--white-dim); font-size: 0.85rem; opacity: 0.6; }
+h1 { font-size: 2rem; margin-bottom: 0.2rem; }
+.sub { color: var(--text-secondary); font-size: 0.875rem; }
 
 .feed-filters {
   display: flex;
@@ -83,21 +82,18 @@ h1 { font-size: 2.5rem; margin-bottom: 0.25rem; }
 }
 
 .filter-btn {
-  background: var(--black-2);
+  background: var(--white);
   border: 1px solid var(--border);
-  color: var(--white-dim);
+  color: var(--text-secondary);
   padding: 0.4rem 1rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 20px;
   transition: all var(--transition);
 }
 
-.filter-btn:hover, .filter-btn.active {
-  border-color: var(--green);
-  color: var(--green);
-  background: rgba(0,230,118,0.06);
-}
+.filter-btn:hover { border-color: var(--green); color: var(--green); }
+.filter-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
 
 .feed-grid {
   display: grid;
