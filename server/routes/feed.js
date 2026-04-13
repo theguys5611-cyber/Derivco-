@@ -46,4 +46,4 @@ router.get('/celebration', async (req, res) => {
 })
 
 export default router
-// Routes: live feed of active projects filtered by stage
+// Celebration Wall: returns all projects marked as complete
