@@ -156,4 +156,4 @@ Rules for shape selection:
   }
 })
 
-export default router
+export default router// Gemini API: generates and sanitizes SVG logo from project description
