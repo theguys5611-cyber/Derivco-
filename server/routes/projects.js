@@ -181,3 +181,4 @@ router.delete('/:id', authenticate, async (req, res) => {
 export default router
 
 // This route is already at the bottom - just confirming structure
+// Milestone endpoint: logs developer progress against a project

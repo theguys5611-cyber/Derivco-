@@ -46,3 +46,4 @@ router.get('/celebration', async (req, res) => {
 })
 
 export default router
+// Celebration Wall: returns all projects marked as complete
